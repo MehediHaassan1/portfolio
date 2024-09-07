@@ -37,7 +37,7 @@ const Skills = () => {
                 {skills.map((item) => (
                     <div className="size-44  mx-auto border border-black rounded relative group flex items-center justify-center hover:text-white hover:bg-black duration-500 transition-all">
                         {item.icon}
-                        <p className="absolute w-full bottom-0  text-center group-hover:bottom-5 transition-all duration-500 opacity-0 group-hover:opacity-100 text-2xl">
+                        <p className="absolute w-full bottom-0  text-center group-hover:bottom-5 transition-all duration-500 opacity-0 group-hover:opacity-100 text-2xl text-white">
                             {item.name}
                         </p>
                     </div>
