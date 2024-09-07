@@ -28,8 +28,10 @@ const Skills = () => {
     return (
         <div className="container mx-auto my-10">
             <div className="w-fit relative my-10">
-                <h1 className="text-9xl font-extrabold opacity-10">Skills</h1>
-                <h1 className="absolute inset-0 flex justify-center items-center text-6xl font-bold">
+                <h1 className="text-7xl lg:text-9xl font-extrabold opacity-20">
+                    Skills
+                </h1>
+                <h1 className="absolute inset-0 flex justify-center items-center text-4xl lg:text-6xl font-bold tracking-widest">
                     Skills
                 </h1>
             </div>

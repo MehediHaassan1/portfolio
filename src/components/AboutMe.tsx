@@ -2,10 +2,12 @@ import aboutMe from "../assets/about-me.svg";
 
 const AboutMe = () => {
     return (
-        <div className="container mx-auto min-h-screen">
+        <div className="container mx-auto min-h-screen my-10">
             <div className="w-fit relative my-10">
-                <h1 className="text-9xl font-extrabold opacity-10">About</h1>
-                <h1 className="absolute inset-0 flex justify-center items-center text-6xl font-bold">
+                <h1 className="text-7xl md:text-9xl font-extrabold opacity-20">
+                    About
+                </h1>
+                <h1 className="absolute inset-0 flex justify-center items-center text-4xl lg:text-6xl font-bold tracking-widest">
                     About Me
                 </h1>
             </div>
@@ -15,13 +17,13 @@ const AboutMe = () => {
                     <p>
                         I’m a dedicated full-stack developer with a strong
                         background in both design and development, specializing
-                        in MERN Stack. I’m driven by a passion for
-                        transforming ideas into polished digital experiences
-                        that not only function seamlessly but also delight
-                        users. Crafting exceptional user interfaces with
-                        pixel-perfect precision, optimizing performance, and
-                        delivering high-quality, readable code are the core
-                        values I bring to every project.
+                        in MERN Stack. I’m driven by a passion for transforming
+                        ideas into polished digital experiences that not only
+                        function seamlessly but also delight users. Crafting
+                        exceptional user interfaces with pixel-perfect
+                        precision, optimizing performance, and delivering
+                        high-quality, readable code are the core values I bring
+                        to every project.
                     </p>
                     <p>
                         Since beginning my journey in 2022, I’ve embraced

@@ -52,7 +52,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <div className="container mx-auto min-h-screen">
+        <div className="container mx-auto min-h-screen my-10">
             <div className="min-h-screen w-full flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
                 <div className="h-full w-full md:w-1/2 order-last md:order-first">
                     <h1 className="text-[28px] md:text-[24px] lg:text-[36px]">
