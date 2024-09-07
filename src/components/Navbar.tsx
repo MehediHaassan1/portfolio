@@ -73,7 +73,7 @@ const Navbar = () => {
     }, [isOpen]);
 
     return (
-        <div className="h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
+        <div className="h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 sticky top-0 left-0 right-0">
             <div className="container mx-auto relative">
                 <div className="h-12 lg:h-20 w-full flex items-center justify-between ">
                     <div>
