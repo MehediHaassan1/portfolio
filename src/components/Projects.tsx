@@ -37,7 +37,7 @@ const Projects = () => {
                     </h1>
                 </div>
 
-                <div className="max-w-5xl mx-auto space-y-10">
+                <div className="max-w-5xl mx-auto space-y-10 py-10">
                     {projects.map((project, index) => (
                         <div
                             key={index}
