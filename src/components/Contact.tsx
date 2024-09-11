@@ -3,7 +3,7 @@ import { IoCallOutline } from "react-icons/io5";
 
 const Contact = () => {
     return (
-        <div className="container mx-auto min-h-screen py-10 md:flex items-center justify-between gap-6 space-y-10">
+        <div id="contact-me" className="container mx-auto min-h-screen py-10 md:flex items-center justify-between gap-6 space-y-10">
             <div className="md:w-1/2">
                 <div className="space-y-5">
                     <input

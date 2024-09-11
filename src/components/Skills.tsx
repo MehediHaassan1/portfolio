@@ -5,8 +5,11 @@ import { FaNode, FaGithub } from "react-icons/fa6";
 import { BiLogoTypescript, BiLogoMongodb } from "react-icons/bi";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { IoLogoFirebase } from "react-icons/io5";
+import TitleAnimation from "./TitleAnimation";
+import { useRef } from "react";
 
 const Skills = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
     const skills = [
         { icon: <FaJs className="size-16" />, name: "JavaScript" },
         { icon: <BiLogoTypescript className="size-16" />, name: "TypeScript" },
@@ -26,15 +29,8 @@ const Skills = () => {
     ];
 
     return (
-        <div className="container mx-auto my-10">
-            <div className="w-fit relative my-10">
-                <h1 className="text-7xl lg:text-9xl font-extrabold opacity-20">
-                    Skills
-                </h1>
-                <h1 className="absolute inset-0 flex justify-center items-center text-4xl lg:text-6xl font-bold tracking-widest">
-                    Skills
-                </h1>
-            </div>
+        <div id="skills" ref={containerRef} className="container mx-auto my-10">
+            <TitleAnimation text="Skills" container={containerRef} />
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 items-center justify-between gap-6">
                 {skills.map((item) => (
                     <div className="size-44  mx-auto border border-black rounded relative group flex items-center justify-center hover:text-white hover:bg-black duration-500 transition-all">

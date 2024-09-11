@@ -1,17 +1,22 @@
+import { useRef } from "react";
 import aboutMe from "../assets/about-me.svg";
+import TitleAnimation from "./TitleAnimation";
 
 const AboutMe = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
     return (
-        <div className="container mx-auto min-h-screen my-10">
-            <div className="w-fit relative my-10">
-                <h1 className="text-7xl md:text-9xl font-extrabold opacity-20">
-                    About
-                </h1>
-                <h1 className="absolute inset-0 flex justify-center items-center text-4xl lg:text-6xl font-bold tracking-widest">
-                    About Me
-                </h1>
-            </div>
-            <div className="h-full w-full flex flex-col md:flex-row items-center justify-between gap-6">
+        <div
+            id="about-me"
+            ref={containerRef}
+            className="container mx-auto min-h-screen py-10"
+        >
+            <TitleAnimation
+                text="About"
+                sub="About Me"
+                container={containerRef}
+            />
+
+            <div className="h-full w-full flex flex-col lg:flex-row items-center justify-between gap-6">
                 <img src={aboutMe} alt="" />
                 <div className="space-y-5 text-zinc-500">
                     <p>
