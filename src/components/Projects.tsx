@@ -41,25 +41,18 @@ const Projects = () => {
 
     const projects = [
         {
-            title: "Crypto Screener Application",
-            image: "https://images.unsplash.com/photo-1725610588150-c4cd8b88affd?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Ride Ease",
+            image: "https://i.ibb.co.com/HrRF3nB/ride-ease.png",
             description:
-                "I'm Evren Shah Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to specimen book.",
-            live: "",
+                "Our Car Rental Reservation System streamlines the entire vehicle booking and rental process, allowing customers to easily reserve cars tailored to their needs. With our intuitive and user-friendly interface, customers can book a vehicle without any hassle, ensuring a seamless experience from start to finish.",
+            live: "https://ride-ease-dusky.vercel.app",
         },
         {
-            title: "Crypto Screener Application",
-            image: "https://images.unsplash.com/photo-1725610588150-c4cd8b88affd?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Camp Craze",
+            image: "https://i.ibb.co.com/d7Ych8j/camp-craze.png",
             description:
-                "I'm Evren Shah Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to specimen book.",
-            live: "",
-        },
-        {
-            title: "Crypto Screener Application",
-            image: "https://images.unsplash.com/photo-1725610588150-c4cd8b88affd?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            description:
-                "I'm Evren Shah Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to specimen book.",
-            live: "",
+                "Camp Craze is an e-commerce platform for camping enthusiasts, offering a seamless shopping experience for camping gear and accessories. Simplifying the process of exploring and purchasing essentials, it ensures a hassle-free and enjoyable shopping journey.",
+            live: "https://camp-crazee.vercel.app",
         },
     ];
 
@@ -100,7 +93,11 @@ const Projects = () => {
                                 <p className="text-zinc-500">
                                     {project.description}
                                 </p>
-                                <a href={project.live} className="mt-5 block">
+                                <a
+                                    href={project.live}
+                                    target="_black"
+                                    className="mt-5 block"
+                                >
                                     <FiExternalLink className="size-6" />
                                 </a>
                             </div>

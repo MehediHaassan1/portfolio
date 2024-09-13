@@ -78,28 +78,28 @@ const Hero = () => {
                     </p>
                     <div className="flex items-center gap-8" ref={iconRef}>
                         <a
-                            href="https://github.com"
+                            href="https://github.com/MehediHaassan1"
                             target="_blank"
                             className="size-12 flex items-center justify-center rounded"
                         >
                             <FaGithub className="size-8 text-black" />
                         </a>
                         <a
-                            href="https://linkedin.com"
+                            href="https://www.linkedin.com/in/mehedi-hassan-barat/"
                             target="_blank"
                             className="size-12 flex items-center justify-center rounded "
                         >
                             <FaLinkedin className="size-8 text-black" />
                         </a>
                         <a
-                            href="https://instagram.com"
+                            href="https://www.instagram.com/mehedi_hassan_538/"
                             target="_blank"
                             className="size-12 flex items-center justify-center rounded "
                         >
                             <FaSquareInstagram className="size-8 text-black" />
                         </a>
                         <a
-                            href="https://facebook.com"
+                            href="https://www.facebook.com/mmehedihassanbarat/"
                             target="_blank"
                             className="size-12 flex items-center justify-center rounded "
                         >
