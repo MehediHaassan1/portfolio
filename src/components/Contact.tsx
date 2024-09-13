@@ -1,43 +1,100 @@
 import { CiMail } from "react-icons/ci";
 import { IoCallOutline } from "react-icons/io5";
+import emailjs from "@emailjs/browser";
+import { useRef, useState, FormEvent } from "react";
+import toast from "react-hot-toast";
 
 const Contact = () => {
+    const form = useRef<HTMLFormElement | null>(null);
+
+    // useState for form fields
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        website: "",
+        message: "",
+    });
+
+    // Handle form field changes
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (form.current) {
+            emailjs
+                .sendForm(
+                    "service_y31on5e",
+                    "template_65m301q",
+                    form.current,
+                    "NJQOqznCRy-P8c_fy"
+                )
+                .then(
+                    () => {
+                        toast.success("Email sent successfully!");
+                        setFormData({
+                            name: "",   
+                            email: "",
+                            website: "",
+                            message: "",
+                        });
+                    },
+                    (error) => {
+                        toast.error(`Failed to send email: ${error.text}`);
+                    }
+                );
+        }
+    };
+
     return (
-        <div id="contact-me" className="container mx-auto min-h-screen py-10 md:flex items-center justify-between gap-6 space-y-10">
+        <div
+            id="contact-me"
+            className="container mx-auto min-h-screen py-10 md:flex items-center justify-between gap-6 space-y-10"
+        >
             <div className="md:w-1/2">
-                <div className="space-y-5">
+                <form ref={form} onSubmit={sendEmail} className="space-y-5">
                     <input
                         type="text"
                         name="name"
-                        id="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         className="h-10 border-2 border-black p-2 max-w-lg w-full rounded focus:outline-none"
                         placeholder="Your Name"
                     />
                     <input
                         type="email"
                         name="email"
-                        id="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         className="h-10 border-2 border-black p-2 max-w-lg w-full rounded focus:outline-none"
                         placeholder="Your Email"
                     />
                     <input
                         type="text"
-                        name="text"
-                        id="text"
+                        name="website"
+                        value={formData.website}
+                        onChange={handleChange}
                         className="h-10 border-2 border-black p-2 max-w-lg w-full rounded focus:outline-none"
                         placeholder="Your website (If exists)"
                     />
-
                     <textarea
                         name="message"
-                        id="message"
+                        value={formData.message}
+                        onChange={handleChange}
                         className="h-32 border-2 border-black p-2 max-w-lg w-full rounded focus:outline-none"
                         placeholder="Your Message"
                     />
-                    <button className="bg-black text-white font-bold rounded hover:bg-gray-800 py-3 px-5">
+                    <button
+                        type="submit"
+                        className="bg-black text-white font-bold rounded hover:bg-gray-800 py-3 px-5"
+                    >
                         Get In Touch
                     </button>
-                </div>
+                </form>
             </div>
             <div className="md:w-1/2">
                 <div className="space-y-5">
@@ -52,10 +109,12 @@ const Contact = () => {
                         experiences.
                     </p>
                     <p className="text-lg font-semibold flex items-center gap-4">
-                        <CiMail className="lg:size-6" /> mehedi.haassan1@gmail.com
+                        <CiMail className="lg:size-6" />{" "}
+                        mehedi.haassan1@gmail.com
                     </p>
                     <p className="text-lg font-semibold flex items-center gap-4">
-                        <IoCallOutline className="lg:size-6" /> (+88) 013259 12538
+                        <IoCallOutline className="lg:size-6" /> (+88) 013259
+                        12538
                     </p>
                 </div>
             </div>
