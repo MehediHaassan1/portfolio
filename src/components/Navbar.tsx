@@ -4,6 +4,7 @@ import { Cross as Hamburger } from "hamburger-react";
 import { FiDownload } from "react-icons/fi";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import resume from "../assets/files/resume.pdf";
 
 const Navbar = () => {
     const [isOpen, setOpen] = useState(false);
@@ -94,8 +95,14 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <button className="flex items-center gap-2 text-md lg:text-xl px-3 py-2 lg:px-5 lg:py-4 bg-black text-white rounded">
-                            Resume <FiDownload />
+                        <button className=" text-md lg:text-xl px-3 py-2 lg:px-5 lg:py-4 bg-black text-white rounded">
+                            <a
+                                className="flex items-center gap-2"
+                                href={resume}
+                                download="Mehedi_Hassan_Resume"
+                            >
+                                Resume <FiDownload />
+                            </a>
                         </button>
                         <div className="md:hidden">
                             <Hamburger
