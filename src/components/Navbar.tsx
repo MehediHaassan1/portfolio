@@ -85,7 +85,7 @@ const Navbar = () => {
                     <div className="md:flex items-center md:gap-3 lg:gap-5 hidden">
                         {navigationMenu.map((item, idx) => (
                             <a
-                                className="md:px-3 md:py-2 px-5 py-3 text-black font-semibold md:text-[18px] text-[20px] mix-blend-difference"
+                                className="md:px-3 md:py-2 px-5 py-3 text-black font-semibold md:text-[18px] text-[20px]"
                                 href={item.path}
                                 key={idx}
                             >
