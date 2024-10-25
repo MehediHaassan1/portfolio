@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import aboutMe from "../assets/about-me.svg";
-import TitleAnimation from "./TitleAnimation";
+import aboutMe from "../../assets/about-me.svg";
+import TitleAnimation from "../ui/TitleAnimation";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitType from "split-type";

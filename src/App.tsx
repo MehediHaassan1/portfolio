@@ -1,35 +1,29 @@
-import { useEffect } from "react";
-import Lenis from "lenis";
-import AboutMe from "./components/AboutMe";
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+// import { useEffect } from "react";
+// import Lenis from "lenis";
+// import Navbar from "./components/ui/Navbar";
+// import Footer from "./components/ui/Footer";
+// import CustomCursor from "./components/ui/CustomCursor";
+// import Home from "./pages/Home";
 
-function App() {
-    useEffect(() => {
-        const lenis = new Lenis();
-        function raf(time:number) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
+// function App() {
+//     useEffect(() => {
+//         const lenis = new Lenis();
+//         function raf(time: number) {
+//             lenis.raf(time);
+//             requestAnimationFrame(raf);
+//         }
 
-        requestAnimationFrame(raf);
-    }, []);
+//         requestAnimationFrame(raf);
+//     }, []);
 
-    return (
-        <>
-            <Navbar />
-            <Hero />
-            <Skills />
-            <AboutMe />
-            <Projects />
-            <Contact />
-            <Footer />
-        </>
-    );
-}
+//     return (
+//         <>
+//             <CustomCursor />
+//             <Navbar />
+//             <Home />
+//             <Footer />
+//         </>
+//     );
+// }
 
-export default App;
+// export default App;

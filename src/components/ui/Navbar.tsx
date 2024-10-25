@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
-import logo from "../assets/main-logo.svg";
+import logo from '../../assets/main-logo.svg';
 import { Cross as Hamburger } from "hamburger-react";
 import { FiDownload } from "react-icons/fi";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import resume from "../assets/files/resume.pdf";
+import resume from "../../assets/files/resume.pdf";
 
 const Navbar = () => {
     const [isOpen, setOpen] = useState(false);
