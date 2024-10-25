@@ -13,6 +13,7 @@ import {
     useGetProjectsQuery,
     useUpdateProjectsMutation,
 } from "@/redux/features/projects.api";
+import { IProject } from "@/types";
 import { Edit, Trash } from "lucide-react";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
@@ -23,17 +24,17 @@ const Projects = () => {
     const [updateProject] = useUpdateProjectsMutation();
     const [deleteProject] = useDeleteProjectsMutation();
 
-    const [editingProject, setEditingProject] = useState(null);
+    const [editingProject, setEditingProject] = useState<IProject | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleAddProject = (newProject) => {
+    const handleAddProject = (newProject: IProject) => {
         if (!editingProject) {
             const { title, description, liveLink, thumbnail } = newProject;
             if (!title || !description || !liveLink || !thumbnail) {
                 toast.error(
                     "All fields are required for creating a new project!"
                 );
-                return; // Prevents modal from closing if there’s an error
+                return;
             } else {
                 createProject(newProject);
             }
@@ -51,12 +52,12 @@ const Projects = () => {
         setIsModalOpen(true);
     };
 
-    const handleEditProject = (project) => {
+    const handleEditProject = (project:IProject) => {
         setEditingProject(project);
         setIsModalOpen(true);
     };
 
-    const handleDeleteProject = (id) => {
+    const handleDeleteProject = (id:string) => {
         deleteProject(id);
     };
 
@@ -70,7 +71,7 @@ const Projects = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {data?.data &&
-                    data?.data?.map((project) => (
+                    data?.data?.map((project:IProject) => (
                         <Card key={project._id}>
                             <CardHeader>
                                 <CardTitle>{project.title}</CardTitle>

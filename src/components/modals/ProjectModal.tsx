@@ -10,16 +10,37 @@ import {
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { useEffect, useState } from "react";
+import { FormEventHandler, useEffect, useState } from "react";
 import uploadImageToCloudinary from "@/utils/uploadImageToCloudinary";
 
-const ProjectModal = ({ onSubmit, project, closeModal }) => {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [thumbnail, setThumbnail] = useState(project ? project.thumbnail : null);
-    const [newThumbnailFile, setNewThumbnailFile] = useState(null);
-    const [liveLink, setLiveLink] = useState("");
-    const [loading, setLoading] = useState(false);
+// Define types for the project and component props
+interface Project {
+    title: string;
+    description: string;
+    thumbnail: string;
+    liveLink: string;
+}
+
+interface ProjectModalProps {
+    onSubmit: (data: ProjectFormData) => void;
+    project?: Project | null;
+    closeModal: () => void;
+}
+
+interface ProjectFormData {
+    title: string;
+    description: string;
+    liveLink: string;
+    thumbnail: string;
+}
+
+const ProjectModal = ({ onSubmit, project, closeModal }: ProjectModalProps) => {
+    const [title, setTitle] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
+    const [thumbnail, setThumbnail] = useState<string | null>(project ? project.thumbnail : null);
+    const [newThumbnailFile, setNewThumbnailFile] = useState<FileList | null>(null);
+    const [liveLink, setLiveLink] = useState<string>("");
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         if (project) {
@@ -36,19 +57,19 @@ const ProjectModal = ({ onSubmit, project, closeModal }) => {
         setNewThumbnailFile(null);
     }, [project]);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
         setLoading(true);
 
-        let uploadedImageUrl = thumbnail;
+        let uploadedImageUrl: string | null = thumbnail || null;
 
         if (newThumbnailFile || !project) {
-            uploadedImageUrl = await uploadImageToCloudinary(newThumbnailFile);
+            uploadedImageUrl = (await uploadImageToCloudinary(newThumbnailFile)) || "";
         }
 
         setLoading(false);
 
-        const formData = {
+        const formData: ProjectFormData = {
             title,
             description,
             liveLink,
@@ -56,11 +77,10 @@ const ProjectModal = ({ onSubmit, project, closeModal }) => {
         };
 
         onSubmit(formData);
-        // closeModal();
     };
 
-    const handleThumbnailChange = (e) => {
-        const file = e.target.files;
+    const handleThumbnailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files || null;
         setNewThumbnailFile(file);
     };
 
