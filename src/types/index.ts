@@ -1,9 +1,12 @@
 export interface IBlog {
-  id: string
+  _id?: string
   title: string
-  excerpt: string
-  date: string
+  content: string
+  thumbnail: string;
   category: string
+  createdAt?: Date;
+  updatedAt?: Date;
+  _v?: number;
 }
 
 

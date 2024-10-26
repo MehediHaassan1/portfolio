@@ -1,6 +1,6 @@
 import { baseApi } from "../api/baseApi";
 
-const tasksApi = baseApi.injectEndpoints({
+const projectsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
 
     createProjects: builder.mutation({
@@ -53,4 +53,4 @@ useCreateProjectsMutation,
 useGetProjectsQuery,
 useUpdateProjectsMutation,
 useDeleteProjectsMutation,
-} = tasksApi;
+} = projectsApi;

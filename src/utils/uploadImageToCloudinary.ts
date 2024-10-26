@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 
-const uploadImageToCloudinary = async (imageFile: FileList | null): Promise<string | undefined> => {
+const uploadImageToCloudinary = async (imageFile: any): Promise<string | undefined> => {
+    console.log(imageFile);
     const cloudName = "dpdfti8b0";
     const uploadPreset = "randomImages";
     const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
@@ -9,7 +11,7 @@ const uploadImageToCloudinary = async (imageFile: FileList | null): Promise<stri
         return undefined;
     }
     const formData = new FormData();
-    formData.append("file", imageFile[0]);
+    formData.append("file", imageFile[0] || imageFile)
     formData.append("upload_preset", uploadPreset);
 
     try {

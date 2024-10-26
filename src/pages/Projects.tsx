@@ -103,7 +103,7 @@ const Projects = () => {
                                     variant="destructive"
                                     size="icon"
                                     onClick={() =>
-                                        handleDeleteProject(project._id)
+                                        handleDeleteProject(project._id as string)
                                     }
                                 >
                                     <Trash className="h-4 w-4" />
