@@ -20,7 +20,7 @@ import "react-quill/dist/quill.snow.css";
 interface BlogModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onSave: (data: IBlog) => void;
+    onSave: (data: any) => Promise<void>;
     initialData?: IBlog;
 }
 
@@ -28,7 +28,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ isOpen, onClose, onSave, initialD
     const [content, setContent] = useState<string>("");
     const [formData, setFormData] = useState<{
         title: string;
-        thumbnail: File | null; // File type for the thumbnail
+        thumbnail: File | null;
         category: string;
     }>({
         title: "",
@@ -41,7 +41,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ isOpen, onClose, onSave, initialD
         if (isOpen && initialData) {
             setFormData({
                 title: initialData.title || "",
-                thumbnail: initialData.thumbnail ? null : null, // Load existing thumbnail if available
+                thumbnail: initialData.thumbnail ? null : null, 
                 category: initialData.category || "",
             });
             setContent(initialData.content || "");
@@ -62,7 +62,6 @@ const BlogModal: React.FC<BlogModalProps> = ({ isOpen, onClose, onSave, initialD
 
         let imageUrl = formData.thumbnail || '';
 
-        // Check if a new image file is selected for upload
         if (formData.thumbnail instanceof File) {
             const response = (await uploadImageToCloudinary(formData.thumbnail)) as string;
             console.log(response);
@@ -75,7 +74,6 @@ const BlogModal: React.FC<BlogModalProps> = ({ isOpen, onClose, onSave, initialD
             thumbnail: imageUrl as string,
         });
 
-        // Clear form data after submission
         setFormData({ title: "", thumbnail: null, category: "" });
         setContent("");
         setIsLoading(false);

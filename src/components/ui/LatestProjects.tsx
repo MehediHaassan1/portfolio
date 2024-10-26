@@ -4,11 +4,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 import TitleAnimation from "./TitleAnimation";
 import { useGetProjectsQuery } from "@/redux/features/projects.api";
+import { IProject } from "@/types";
+import { Button } from "./button";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Projects = () => {
-    const {data} = useGetProjectsQuery({});
+const LatestProjects = () => {
+    const { data } = useGetProjectsQuery({});
     const container = useRef<HTMLDivElement | null>(null);
     const projectDescRefs = useRef<HTMLDivElement[]>([]);
     const projectImageRefs = useRef<HTMLDivElement[]>([]);
@@ -41,16 +44,14 @@ const Projects = () => {
         return () => context.revert();
     }, []);
 
-
-
     return (
         <div id="projects" ref={container} className="min-h-screen w-full">
             <div className="container mx-auto">
                 <TitleAnimation text="Projects" container={container} />
 
                 <div className="max-w-5xl mx-auto space-y-28 py-10">
-                    {
-                        data?.data && data?.data?.map((project, index) => (
+                    {data?.data &&
+                        data.data.slice(0, 3).map((project: IProject, index: number) => (
                             <div
                                 key={index}
                                 className={`flex flex-col md:flex-row ${
@@ -68,7 +69,7 @@ const Projects = () => {
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-    
+
                                 {/* Text Section */}
                                 <div
                                     ref={(el) => addToRefs(el, projectDescRefs)}
@@ -90,12 +91,16 @@ const Projects = () => {
                                     </a>
                                 </div>
                             </div>
-                        ))
-                    }
+                        ))}
                 </div>
+            </div>
+            <div className="text-center">
+                <Button>
+                    <Link to='/all-projects'>See All Projects</Link>
+                </Button>
             </div>
         </div>
     );
 };
 
-export default Projects;
+export default LatestProjects;

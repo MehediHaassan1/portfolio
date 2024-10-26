@@ -7,6 +7,9 @@ import Dashboard from "../pages/Dashboard";
 import Projects from "../pages/Projects";
 import Skills from "../pages/Skills";
 import Blogs from "../pages/Blogs";
+import AllBlogs from "@/pages/AllBlogs";
+import Blog from "@/pages/Blog";
+import AllProjects from "@/pages/AllProjects";
 
 const router = createBrowserRouter([
     {
@@ -17,7 +20,18 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home />,
             },
-
+            {
+                path: "/all-blogs",
+                element: <AllBlogs />,
+            },
+            {
+                path: "/all-blogs/:blogId",
+                element: <Blog />,
+            },
+            {
+                path: "/all-projects",
+                element: <AllProjects />,
+            },
             {
                 path: "/contact",
                 element: <div>contact</div>,

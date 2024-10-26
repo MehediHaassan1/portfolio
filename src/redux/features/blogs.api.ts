@@ -24,6 +24,16 @@ const blogsApi = baseApi.injectEndpoints({
       providesTags: ['blogs'],
     }),
 
+    getBlog: builder.query({
+      query: (payload) => {
+          return {
+          url: `/blogs/${payload}`,
+          method: 'GET',
+        };
+      },
+      providesTags: ['blogs'],
+    }),
+
     updateBlogs: builder.mutation({
       query: (payload) => {
         return {
@@ -51,6 +61,7 @@ const blogsApi = baseApi.injectEndpoints({
 export const {
 useCreateBlogsMutation,
 useGetBlogsQuery,
+useGetBlogQuery,
 useUpdateBlogsMutation,
 useDeleteBlogsMutation,
 } = blogsApi;
